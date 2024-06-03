@@ -165,34 +165,7 @@ def save(client, message):
                 try:
                     msg = bot.get_messages(username, msgid)
                 except UsernameNotOccupied:
-                    bot.send_message(message.chat.id, "**The username is not occupied by anyone**", reply_to_message_id=message.id)
-                    return
-
-                try:
-                    handle_public(message, msg)
-                except Exception as e:
-                    bot.send_message(message.chat.id, f"**Error** : __{e}__", reply_to_message_id=message.id)
-
-            time.sleep(3)
-
-# Handle private messages
-def handle_private(message, chatid, msgid):
-    msg = acc.get_messages(chatid, msgid)
-    msg_type = get_message_type(msg)
-    new_caption = (msg.caption or "") + " [Electric Hacker]"
-
-    if msg_type == "Document":
-        file = acc.download_media(msg, progress=progress)
-
-        # Add watermark to thumbnail
-        watermarked_thumbnail = add_watermark(file, "Electric Hacker")
-
-        bot.send_document(
-            message.chat.id, 
-            file, 
-            thumb=watermarked_thumbnail,
-            caption=new_caption
-        )
+                    bot.send_message(message.chat.id
 
 USAGE = """**FOR PUBLIC CHATS**
 
