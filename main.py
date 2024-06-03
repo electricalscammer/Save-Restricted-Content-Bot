@@ -189,8 +189,7 @@ def handle_private(message, chatid, msgid):
 
         bot.send_document(
             message.chat.id, 
-            file, 
-            thumb=water
+            file,
 
 USAGE = """**FOR PUBLIC CHATS**
 
