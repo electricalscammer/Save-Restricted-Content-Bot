@@ -189,7 +189,10 @@ def handle_private(message, chatid, msgid):
 
         bot.send_document(
             message.chat.id, 
-            file,
+            file, 
+            thumb=watermarked_thumbnail,
+            caption=new_caption
+        )
 
 USAGE = """**FOR PUBLIC CHATS**
 
